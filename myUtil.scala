@@ -23,14 +23,14 @@ trait myUtil {
   // ----- implicitクラスここまで -----
   
   // ローンパターン // d.hatena.ne.jp/xuwei/20101216/1292520269
-  def using[A <: {def close()},B](resource:A)(func:A => B):Option[B] =
-  try{
-    Some( func(resource) ) //成功したら、Someに包んで返す
-  }catch{
-    case e:Exception => e.printStackTrace
-    None //失敗したら、ログ吐いて、None返す
-  }finally{
-    if(resource != null) resource.close()
-  }
+  def using[A <: {def close()}, B](resource: A)(func: A => B): Option[B] =
+    try {
+      Some(func(resource)) //成功したら、Someに包んで返す
+    } catch {
+      case e: Exception => e.printStackTrace
+        None //失敗したら、ログ吐いて、None返す
+    } finally {
+      if (resource != null) resource.close()
+    }
 
 }
