@@ -5,6 +5,9 @@ trait myUtil {
   // 三項演算子っぽいやつ
   def eitherOneIfLeft[T](v: T, defaultValue: T)(p: T => Boolean): T = if (p(v)) v else defaultValue
 
+  // 三項演算子っぽいやつ
+  def ifMap[T](v: T)(f: T => T)(p: T => Boolean): T = if (p(v)) f(v) else v
+
 
   // タプルを入れ替える
   def flipTuple[A, B](ab: (A, B)): (B, A) = (ab._2, ab._1)
