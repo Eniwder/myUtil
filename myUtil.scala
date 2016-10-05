@@ -9,6 +9,10 @@ trait myUtil {
   // タプルを入れ替える
   def flipTuple[A, B](ab: (A, B)): (B, A) = (ab._2, ab._1)
 
+  // 制限範囲内の値を取得する
+  def limitedRange(minX: Double, x: Double, maxX: Double) = x max minX min maxX
+
+
   // ----- implicitクラス -----
   // Bufferからオブジェクトを削除する
   implicit class MyBuf[T](val buf: mutable.Buffer[T]) {
